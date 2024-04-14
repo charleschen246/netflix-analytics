@@ -11,19 +11,19 @@ renamed as (
     select
 
         --Date and time of the click
-        datetime,
+        datetime datetime_click,
 
         --Time between this click and the user's next tracked click on Netflix.com, in seconds
-        duration as duration_in_seconds,
+        duration as between_click_duration_in_seconds,
 
         title,
 
         genres,
 
         --Movie's original theatrical release date (not when it first appeared on Netflix)
-        release_date,
-        CAST(release_date as DATE FORMAT 'YYYY-MM-DD') as theatrical_release_date,
+        safe.PARSE_DATE('%F',release_date) as theatrical_release_date,
 
+        
         movie_id,
 
         user_id 
@@ -32,4 +32,5 @@ renamed as (
 
 )
 
-select * from renamed
+select * 
+from renamed

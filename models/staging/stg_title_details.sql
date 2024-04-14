@@ -20,8 +20,8 @@ renamed as (
 
         country,
 
-        --Date it was added on Netflix  
-        CAST(date_added as DATE FORMAT 'MONTH DD, YYYY') as date_added ,
+        --Date it was added on Netflix 10 null
+         safe.parse_date('%B %e, %Y', date_added) as date_add_netflix,
 
         --Actual Release year of the move / show
         release_year,
