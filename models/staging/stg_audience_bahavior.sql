@@ -30,6 +30,7 @@ renamed as (
 
     from source
 
+    where duration IS NOT NULL
 )
 
 select * 

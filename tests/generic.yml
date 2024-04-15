@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_audience_bahavior
+    columns:
+      - name: duration
+        tests:
+          - not_null
+            -unique
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: genres
+        tests:
+          - not_null
+          - unique

@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_audience_bahavior
+    columns:
+      - name: between_click_duration_in_seconds
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: genres
+        tests:
+          - not_null
+
+  - name: stg_title_details
+    columns:
+      - name: show_id
+        tests:
+          - not_null

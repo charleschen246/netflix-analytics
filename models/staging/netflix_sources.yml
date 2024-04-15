@@ -6,7 +6,15 @@ sources:
     schema: netflix_dataset
     tables:
       - name: audience_behavior
-        description: "The dataset covers user behaviour on Netflix from users in the UK to opted-in to have their anonymized browsing activity tracked. 
-                      It only includes desktop and laptop activity (which Netflix estimate is around 25% of global traffic) and is for a fixed window of time (January 2017 to June 2019, inclusive). It documents each time someone in our tracked panel in the UK clicked on a Netflix.com/watch URL for a movie.'Duration' shows how long it was (in seconds) until that user clicked on another URL. A watch time of zero seconds means they visited the page but instantly clicked away."
+        description: "The dataset covers user behaviour on Netflix from users in the UK to opted-in to have their anonymized browsing activity tracked. It only includes desktop and laptop activity (which Netflix estimate is around 25% of global traffic) and is for a fixed window of time (January 2017 to June 2019, inclusive). It documents each time someone in our tracked panel in the UK clicked on a Netflix.com/watch URL for a movie.'Duration' shows how long it was (in seconds) until that user clicked on another URL. A watch time of zero seconds means they visited the page but instantly clicked away."
+        columns:
+          - name: user_id
+            tests:
+              - not_null
       - name: title_details
         description: "dataset consists of listings of all the movies and tv shows available on Netflix, along with details such as - cast, directors, ratings, release year, duration, etc."
+        columns:
+          - name: show_id
+            tests:
+              - not_null
+              - unique
